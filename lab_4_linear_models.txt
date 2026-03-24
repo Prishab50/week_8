@@ -1,0 +1,26 @@
+1. What makes a model "linear"? "Linear" in what?
+
+A model is linear due to its parameters. As long as its parameters are added in a linear manner without other mathematical operations such as logarithms or being squared, the model will remain linear. 
+
+2. How do you interpret the coefficient for a dummy/one-hot-encoded variable? (This is a trick question, and the trick involves how you handle the intercept of the model.) There's further explanation at the end of this document, if needed.
+
+The coefficient for a dummy/one-hot-encoded variable can be interpreted differently depending on if the first category is dropped or not.
+To avoid multicollinearity when using one-hot-encoding, one category is dropped which then serves as the baseline when the other variables when they are zero. 
+This means that the coefficient indicates how much the mean a category differs from the mean of the reference group.
+
+If fit_intercept=False is used to remove the intercept, then a category does not need to be dropped to avoid multicollinearity. 
+In this case, the coefficient represents the absolute mean of a category rather than a comparative difference.
+
+3. Can linear regression be used for classification? Explain why, or why not.
+
+Linear regression is a continuous model, so it is hard to use it for classification which requries discrete labels such as 0 or 1. It is possible to make constraints
+in the data (like group 1 is when 0.5 < y) to create labels, but this can be inaccruate because a linear relationship is being assumed and the model is not constrained to 
+[0, 1], so it cannot be interpted as probabilities.
+
+4. If you have a high accuracy on testing but low on testing, what might be the problem? It also might be you see a pattern in the residuals. 
+
+
+5. Review this page: [Non-Linear with Linear](https://inria.github.io/scikit-learn-mooc/python_scripts/linear_regression_non_linear_link.html) What are two ways to incorporate nonlinear relationships between your target/response/dependent/outcome variable $y$ and your features/control/response/independent variables $x$?
+
+
+6. What is the interpretation of the intercept? A slope coefficient for a variable? The coefficient for a dummy/one-hot-encoded variable?
