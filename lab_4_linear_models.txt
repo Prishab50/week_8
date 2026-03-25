@@ -19,8 +19,14 @@ in the data (like group 1 is when 0.5 < y) to create labels, but this can be ina
 
 4. If you have a high accuracy on testing but low on testing, what might be the problem? It also might be you see a pattern in the residuals. 
 
+This means the model is an overfit, so it is too atuned to the noise in the training data rather than learning any underlying patterns.
 
 5. Review this page: [Non-Linear with Linear](https://inria.github.io/scikit-learn-mooc/python_scripts/linear_regression_non_linear_link.html) What are two ways to incorporate nonlinear relationships between your target/response/dependent/outcome variable $y$ and your features/control/response/independent variables $x$?
 
+One way to incorporate nonlinear relationships is to add polynomial features by raising existing ones to a power like x^2. Another way to is to transform them by applying functions like log or arcsinh.
 
 6. What is the interpretation of the intercept? A slope coefficient for a variable? The coefficient for a dummy/one-hot-encoded variable?
+
+The intercept is the prediction of y when all variables of x are zero. 
+The slope coefficient for a variable is the change in y for one unit of that variable if the other variables are kept constant.
+The coefficient for one-hot-enconded variable is the difference between the mean of y between that category and the reference category.
